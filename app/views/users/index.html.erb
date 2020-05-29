@@ -1,0 +1,12 @@
+<h1> Users </h1>
+
+<% @users.each do |user| %>
+  <ul>
+    <li>
+      username: <%= user.username %>, 
+      email: <%= user.email %>
+    </li>
+  </ul>
+<% end %>
+
+<%= link_to "Create a new User",  new_user_path %>
