@@ -1,3 +1,3 @@
 class Event < ApplicationRecord
-  belongs_to :creator, class_name: 'user', foreign_key: 'user_id'
+  belongs_to :user, foreign_key: 'user_id'
 end

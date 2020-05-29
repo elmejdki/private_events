@@ -12,4 +12,9 @@
 
 
 <%= link_to "Sign up",  new_user_path %>
-<%= link_to "Sign in",  users_sign_in_path %>
+
+<% if session[:user_id].nil? %>
+  <%= link_to "Sign in",  users_sign_in_path %>
+<% else %>
+  Welcome: <%= User.find(session[:user_id]).username %>
+<% end %>

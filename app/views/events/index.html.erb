@@ -1,0 +1,12 @@
+<h1>Next Events:</h1>
+<ul>
+  <% @events.each do |event| %>
+      <li>
+      <%= event.title %>,
+      <%= event.body %>,
+      <%= event.date %>,
+      <%= event.place %>
+      </li>
+  <% end %>
+</ul>
+<%= link_to  "Create an event", new_event_path %>

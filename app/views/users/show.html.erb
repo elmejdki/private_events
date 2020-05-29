@@ -5,9 +5,13 @@
 
 <h1>  User Events: </h1>
 
-<%= @events.each do |event| %>
+<ul>
+<% @events.each do |event| %>
+  <li>
   <%= event.date %>
   <%= event.title %>
   <%= event.body %>
   <%= event.place %>
+  </li>
 <% end %>
+</ul>
