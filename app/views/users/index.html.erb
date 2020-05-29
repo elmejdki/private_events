@@ -5,8 +5,11 @@
     <li>
       username: <%= user.username %>, 
       email: <%= user.email %>
+      <%= link_to  "-->", user_path(user) %>
     </li>
   </ul>
 <% end %>
 
-<%= link_to "Create a new User",  new_user_path %>
+
+<%= link_to "Sign up",  new_user_path %>
+<%= link_to "Sign in",  users_sign_in_path %>

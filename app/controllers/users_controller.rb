@@ -17,6 +17,25 @@ class UsersController < ApplicationController
     end
   end
 
+  def show
+    @user = User.find(params[:id])
+  end  
+
+  def destroy
+    @user =  User.find(params[:id])
+    @user.destroy
+    redirect_to users_path
+  end
+
+  def sign_in
+    @user = User.new
+  end
+
+  def sign_in_action
+    @user = User.find_by(username: params[:username])
+    session[:user_id] = @user.id
+  end
+
   private
   def user_params
     params.require(:user).permit(:username, :email)
