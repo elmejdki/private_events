@@ -6,12 +6,13 @@
 <h1>  User Events: </h1>
 
 <ul>
-<% @events.each do |event| %>
-  <li>
-  <%= event.date %>
-  <%= event.title %>
-  <%= event.body %>
-  <%= event.place %>
-  </li>
-<% end %>
+  <% @events.each do |event| %>
+    <li>
+    <%= event.date %>
+    <%= event.title %>
+    <%= event.body %>
+    <%= event.place %>
+    <%= link_to 'show', event_path(event) %>
+    </li>
+  <% end %>
 </ul>
