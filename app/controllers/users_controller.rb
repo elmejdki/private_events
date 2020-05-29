@@ -32,8 +32,14 @@ class UsersController < ApplicationController
   end
 
   def sign_in_action
-    @user = User.find_by(username: params[:username])
-    session[:user_id] = @user.id
+    @user = User.find_by(username: user_params["username"])
+
+    if @user.nil?
+      redirect_to root_path, alert: 'Wrong Username, sorry you are not allowed to enter.'
+    else
+      session[:user_id] = @user.id
+      redirect_to root_path, notice: 'You signed in successfully.'
+    end
   end
 
   private
