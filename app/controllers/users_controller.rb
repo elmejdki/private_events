@@ -42,6 +42,11 @@ class UsersController < ApplicationController
       redirect_to root_path, notice: 'You signed in successfully.'
     end
   end
+  
+  def sign_out
+    session.delete(:user_id)
+    redirect_to root_path
+  end
 
   private
   def user_params

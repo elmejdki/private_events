@@ -19,6 +19,12 @@
       <%= alert %>
     <% end %>
 
+    <% if session[:user_id].nil?%>
+      <%= link_to  "Sign In", users_sign_in_path %>
+      <%= link_to  "Sign up", new_user_path %>
+    <% else %>
+      Welcome: <%= User.find(session[:user_id]).username %> 
+    <% end %>
     <%= yield %>
   </body>
 </html>
