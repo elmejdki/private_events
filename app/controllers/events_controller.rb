@@ -5,6 +5,8 @@ class EventsController < ApplicationController
 
   def show
     @attendees = Event.find(params[:id]).attendees
+    out_ids = @attendees.map{ |attendee| attendee.id }.push( session[:user_id] )
+    @users = User.where('id NOT IN (?)', out_ids)
   end
 
   def new
