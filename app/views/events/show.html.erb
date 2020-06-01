@@ -1,6 +1,9 @@
-<h1>Creator of the Event</h1>
+<h1>Attendees List</h1>
 
-<p><%= @creator.username %></p>
-<p><%= @creator.email %></p>
+<ul>
+  <% @attendees.each do |attendee| %>
+    <li> <%= attendee.username %> </li>
+  <% end %>
+</ul>
 
 <%= link_to "Home", root_path %>

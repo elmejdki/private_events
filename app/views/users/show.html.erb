@@ -3,16 +3,29 @@
 <h2>  Email: <%=@user.email %>  </h2>
 <%= link_to  "Delete Account", user_path, method: :delete %>
 
-<h1>  User Events: </h1>
-
+<h1>  Previous Events: </h1>
 <ul>
-  <% @events.each do |event| %>
+  <% @attended_events.filter{ |event| event.date < Time.now }.each do |event| %>
     <li>
-    <%= event.date %>
-    <%= event.title %>
-    <%= event.body %>
-    <%= event.place %>
-    <%= link_to 'show', event_path(event) %>
+      <%= event.date %>
+      <%= event.title %>
+      <%= event.body %>
+      <%= event.place %>
+      <%= link_to 'show', event_path(event) %>
     </li>
   <% end %>
 </ul>
+
+<h1>  Upcoming Events: </h1>
+<ul>
+  <% @attended_events.filter{ |event| event.date >= Time.now }.each do |event| %>
+    <li>
+      <%= event.date %>
+      <%= event.title %>
+      <%= event.body %>
+      <%= event.place %>
+      <%= link_to 'show', event_path(event) %>
+    </li>
+  <% end %>
+</ul>
+
