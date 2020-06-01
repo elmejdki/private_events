@@ -2,15 +2,13 @@
 
 <ul>
   <% @attendees.each do |attendee| %>
-    <li> <%= attendee.username %> </li>
+    <li> <%= attendee.username %> <%= link_to 'uninvite', destroy_invite_path(attendee_id: attendee.id, event_id: params[:id]), method: :delete %> </li>
   <% end %>
 </ul>
 
-<h1>users</h1>
-
-<% @users.each do |user| %>
-  <li> <%= user.username %> </li>
+<%= form_for @invite do |f| %>
+  <%= f.collection_select(:attendee_id, @users, :id, :username) %>
+  <%= f.submit "invite user" %>
 <% end %>
-
 
 <%= link_to "Home", root_path %>

@@ -17,6 +17,11 @@ class UsersController < ApplicationController
     end
   end
 
+  def my_events
+    @my_past_events = User.find(session[:user_id]).attended_events.past
+    @my_up_events = User.find(session[:user_id]).attended_events.upcoming
+  end
+
   def show
     @user = User.find(params[:id])
     @attended_events = @user.attended_events.order('date asc')
