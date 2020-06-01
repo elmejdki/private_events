@@ -45,7 +45,7 @@ class UsersController < ApplicationController
   
   def sign_out
     session.delete(:user_id)
-    redirect_to root_path
+    redirect_to root_path, notice: 'You signed out, see you later man'
   end
 
   private
