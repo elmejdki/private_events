@@ -31,7 +31,7 @@
   }
 }
 
-.content {
+.my-content {
   margin: 30px 10px;
 }
 
@@ -47,6 +47,23 @@ h1 {
   .card {
     width: 300px;
     margin: 20px 0;
-  }
 
+    .card-content {
+      padding: 5px 5px;
+
+      .content {
+        margin: 15px 10px;
+      }
+    }
+  }
+}
+
+.users-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+
+  .box {
+    width: 400px;
+  }
 }
