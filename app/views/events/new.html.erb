@@ -1,11 +1,29 @@
-<%= form_for @event do |f| %>
-  <%= f.label :title %><br />
-  <%= f.text_field :title %><br />
-  <%= f.label :body %><br />
-  <%= f.text_area :body %><br />
-  <%= f.label :place %><br />
-  <%= f.text_field :place %><br />
-  <%= f.label :date %><br />
-  <%= f.date_field :date %><br />
-  <%= f.submit "Create Event" %>
-<% end %>
+<div class="columns is-centered">
+  <div class="column is-one-third">
+    <div class="box"> 
+      <h1 class="title is-5 has-background-info has-text-centered has-text-white"> Create event  </h1>
+        <%= form_for @event do |f| %>
+          <div class="flex-centered">
+            <%= f.label :title, class: 'tag is-large' %>
+            <%= f.text_field :title, class: 'input m-ud' %>
+            <% if @event.errors[:title].any? %>
+              <% @event.errors[:title].each do |msg| %>
+                <p class="error"><%= msg %></p>
+              <% end %>
+            <% end %>
+
+            <%= f.label :body, class: 'tag is-large' %>
+            <%= f.text_area :body, class: 'textarea m-ud' %>
+
+            <%= f.label :place, class: 'tag is-large' %>
+            <%= f.text_field :place, class: 'input m-ud' %>
+
+            <%= f.label :date, class: 'tag is-large' %>
+            <%= f.date_field :date, class: 'input m-ud' %>
+
+            <%= f.submit "Create Event", class: 'button is-primary m-ud' %>
+          </div>
+        <% end %>
+    </div> 
+  </div> 
+</div> 
