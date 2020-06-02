@@ -10,25 +10,31 @@
   </head>
 
   <body>
+      <% if flash[:notice] %>
+        <div class="notification is-primary">  
+        <%= notice %>
+        </div>
+      <% end %>
 
-    <% if flash[:notice] %>
-      <%= notice %>
-    <% end %>
-
-    <% if flash[:alert] %>
-      <%= alert %>
-    <% end %>
-
-    <% if session[:user_id].nil?%>
-      <%= link_to  "Sign In", users_sign_in_path %>
-      <%= link_to  "Sign up", new_user_path %>
-    <% else %>
-      Welcome: <%= User.find(session[:user_id]).username %>
-      <%= link_to "All Events", events_path %>
-      <%= link_to "My Events", my_events_path %>
-      <%= link_to "Users", users_path %>
-      <%= link_to "Sign Out", users_sign_out_path, method: :delete %>
-    <% end %>
+      <% if flash[:alert] %>
+        <div class="notification is-danger">  
+        <%= alert %>
+        </div>
+      <% end %>
+    <nav class="navbar is-info">
+      <div class="navbar-menu navbar-end">
+      <% if session[:user_id].nil?%>
+          <%= link_to  "Sign In", users_sign_in_path, class: 'is-primary button' %>
+          <%= link_to  "Sign up", new_user_path, class: 'is-primary button' %>
+      <% else %>
+        Welcome: <%= User.find(session[:user_id]).username %>
+        <%= link_to "All Events", events_path, class: 'is-primary button' %>
+        <%= link_to "My Events", my_events_path, class: 'is-primary button' %>
+        <%= link_to "Users", users_path, class: 'is-primary button' %>
+        <%= link_to "Sign Out", users_sign_out_path, method: :delete, class: 'is-danger button' %>
+      <% end %>
+      </div>
+    </nav>
     <%= yield %>
   </body>
 </html>
