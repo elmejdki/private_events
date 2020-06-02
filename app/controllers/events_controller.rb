@@ -16,11 +16,18 @@ class EventsController < ApplicationController
 
   def create
     @event = User.find(session[:user_id]).events.build(event_params)
-
+    
     if @event.save
-      redirect_to events_path, notice: 'New event created'
+      @invite = EventsUser.new(attendee_id: session[:user_id], attended_event_id: @event.id)
+
+      if @invite.save
+        redirect_to events_path, notice: 'A new event was created successfuly'
+      else
+        @event.destroy
+        render :new, alert: 'Fatal error for some reason we can\'t save your event'
+      end
     else
-      render :new, alert: 'No event created'
+      render :new, alert: 'Fatal error, No event was created'
     end
   end
 
