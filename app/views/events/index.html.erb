@@ -1,25 +1,43 @@
-<h1>Previous Events:</h1>
-<ul>
-  <% @events.past.each do |event| %>
-      <li>
-      <%= event.title %>,
-      <%= event.body %>,
-      <%= event.date %>,
-      <%= event.place %>
-      <%= link_to "show", event_path(event) %>
-      </li>
-  <% end %>
-</ul>
-<h1>Upcoming Events:</h1>
-<ul>
-  <% @events.upcoming.each do |event| %>
-      <li>
-      <%= event.title %>,
-      <%= event.body %>,
-      <%= event.date %>,
-      <%= event.place %>
-      <%= link_to "show", event_path(event) %>
-      </li>
-  <% end %>
-</ul>
-<%= link_to  "Create an event", new_event_path %>
+<div class="columns">
+  <div class="column is-three-fifths is-offset-one-fifth">
+    <div class="box">
+      <article class="media">
+        <div class="media-content">
+          <div class="content">
+            <div class="">
+              <h1 class="">Previous Events:</h1>
+              <ul>
+                <% @events.past.each do |event| %>
+                    <li>
+                      <%= event.title %>,
+                      <%= event.body %>,
+                      <%= event.date %>,
+                      <%= event.place %>
+                      <%= link_to "show", event_path(event) %>
+                    </li>
+                <% end %>
+              </ul>
+            </div>
+            <div class="">
+              <h1>Upcoming Events:</h1>
+              <ul>
+                <% @events.upcoming.each do |event| %>
+                    <li>
+                    <%= event.title %>,
+                    <%= event.body %>,
+                    <%= event.date %>,
+                    <%= event.place %>
+                    <%= link_to "show", event_path(event) %>
+                    </li>
+                <% end %>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <%= link_to  "Create an event", new_event_path %>
+  </div>
+</div>
+

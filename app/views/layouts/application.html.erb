@@ -22,19 +22,28 @@
         </div>
       <% end %>
     <nav class="navbar is-info">
-      <div class="navbar-menu navbar-end">
-      <% if session[:user_id].nil?%>
-          <%= link_to  "Sign In", users_sign_in_path, class: 'is-primary button' %>
-          <%= link_to  "Sign up", new_user_path, class: 'is-primary button' %>
-      <% else %>
-        Welcome: <%= User.find(session[:user_id]).username %>
-        <%= link_to "All Events", events_path, class: 'is-primary button' %>
-        <%= link_to "My Events", my_events_path, class: 'is-primary button' %>
-        <%= link_to "Users", users_path, class: 'is-primary button' %>
-        <%= link_to "Sign Out", users_sign_out_path, method: :delete, class: 'is-danger button' %>
-      <% end %>
+      <div class="navbar-menu">
+        <% if session[:user_id].nil?%>
+          <div class="navbar-end is-flex">
+            <%= link_to  "Sign In", users_sign_in_path, class: 'is-primary button' %>
+            <%= link_to  "Sign up", new_user_path, class: 'is-primary button' %>
+          </div>
+        <% else %>
+          <div class="navbar-start is-flex">
+            Welcome: <%= User.find(session[:user_id]).username %>
+            <%= link_to "All Events", events_path, class: 'is-primary button m-l' %>
+            <%= link_to "My Events", my_events_path, class: 'is-primary button m-l' %>
+            <%= link_to "Users", users_path, class: 'is-primary button m-l' %>
+          </div>
+          <div class="navbar-end is-flex">
+            <%= link_to "Sign Out", users_sign_out_path, method: :delete, class: 'is-danger button' %>
+          </div>
+        <% end %>
       </div>
     </nav>
-    <%= yield %>
+    
+    <div class="content">
+      <%= yield %>
+    </div>
   </body>
 </html>

@@ -14,3 +14,23 @@
  *= require_self
  */
 @import "bulma";
+
+.notification:not(:last-child) {
+  margin-bottom: 0;
+}
+
+.navbar {
+  padding: 0 20px;
+
+  .is-flex {
+    align-items: center;
+  }
+
+  .m-l {
+    margin-left: 10px
+  }
+}
+
+.content {
+  margin: 30px 10px;
+}
