@@ -68,3 +68,21 @@ h1 {
   }
 }
 
+.users-container-vertical {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+
+  .box {
+    width: 400px;
+  }
+}
+
+.m-ud {
+  margin: 10px 0;
+}
+
+.flex-centered {
+  display: flex;
+  flex-direction: column;
+}
