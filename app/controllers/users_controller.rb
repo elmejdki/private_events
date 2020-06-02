@@ -31,6 +31,7 @@ class UsersController < ApplicationController
     @user =  User.find(params[:id])
     @user.destroy
     redirect_to users_path
+    session.delete(:user_id)
   end
 
   def sign_in
