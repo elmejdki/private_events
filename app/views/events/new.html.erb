@@ -6,20 +6,19 @@
           <div class="flex-centered">
             <%= f.label :title, class: 'tag is-large' %>
             <%= f.text_field :title, class: 'input m-ud' %>
-            <% if @event.errors[:title].any? %>
-              <% @event.errors[:title].each do |msg| %>
-                <p class="error"><%= msg %></p>
-              <% end %>
-            <% end %>
+            <%= render partial: 'error_handler', locals: {source: :title}%>
 
             <%= f.label :body, class: 'tag is-large' %>
             <%= f.text_area :body, class: 'textarea m-ud' %>
+            <%= render partial: 'error_handler', locals: {source: :body}%>
 
             <%= f.label :place, class: 'tag is-large' %>
             <%= f.text_field :place, class: 'input m-ud' %>
+            <%= render partial: 'error_handler', locals: {source: :place}%>
 
             <%= f.label :date, class: 'tag is-large' %>
             <%= f.date_field :date, class: 'input m-ud' %>
+            <%= render partial: 'error_handler', locals: {source: :date}%>
 
             <%= f.submit "Create Event", class: 'button is-primary m-ud' %>
           </div>

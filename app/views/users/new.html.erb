@@ -6,9 +6,11 @@
           <div class="flex-centered">
             <%= f.label :username, class: 'tag is-large' %>
             <%= f.text_field :username, class: 'input m-ud' %>
+            <%= render partial: 'error_handler', locals: {source: :username} %>
 
             <%= f.label :email, class: 'tag is-large' %>
             <%= f.text_field :email, class: 'input m-ud' %>
+            <%= render partial: 'error_handler', locals: {source: :email} %>
 
             <%= f.submit "Log in", class: 'button is-primary m-ud' %>
           </div>
