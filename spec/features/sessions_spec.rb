@@ -33,14 +33,18 @@ describe 'User Sessions' do
     end
   end
 
-  context 'user unsigned in' do
+  context 'user signed in' do
     before do
-      fill_in 'Username', with: username
+      puts User.all.inspect
+      fill_in 'Username', with: 'Zack'
+      
       click_button 'Log in'
+      
     end
 
     it 'displays a welcome message' do
       expect(page).to have_content('You signed in successfully.')
+      
     end
 
     it 'shows the correct menu links' do
