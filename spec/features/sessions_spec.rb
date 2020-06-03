@@ -6,8 +6,7 @@ describe 'User Sessions' do
   let(:email) { 'Zack@Efrone.net' }
 
   before do
-    visit root_path
-    within('.navbar') { click_link('Sign in') }
+    visit users_sign_in_path
   end
 
   context 'user unsigned in' do
@@ -20,9 +19,11 @@ describe 'User Sessions' do
       expect(page).to have_content('Wrong Username, sorry you are not allowed to enter.')
     end
 
+    
     it 'shows the correct menu links' do
       within('.navbar') do
-        expect(page).to have_link('Sign in')
+        sleep(5)
+        expect(page).to have_link('Sign In')
         expect(page).to have_link('Sign up')
         expect(page).to_not have_link('My Events')
         expect(page).to_not have_link('Users')
