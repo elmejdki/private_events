@@ -7,8 +7,8 @@ class Event < ApplicationRecord
   scope :past, -> { where('date < ?', Time.now) }
   scope :upcoming, -> { where('date >= ?', Time.now) }
 
-  validates :title, length: { in: 10..25 }, presence: true, uniqueness: true
-  validates :body, presence: true, length: { in: 20..200 }
-  validates :place, presence: true, length: { in: 2..20 }
+  validates :title, length: { minimum: 10 }, presence: true, uniqueness: true
+  validates :body, presence: true, length: { minimum: 20 }
+  validates :place, presence: true, length: { minimum: 2 }
   validates :date, presence: true
 end

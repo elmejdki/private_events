@@ -45,6 +45,9 @@ h1 {
   flex-wrap: wrap;
   justify-content: space-around;
   .card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     width: 300px;
     margin: 20px 0;
 
