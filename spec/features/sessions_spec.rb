@@ -11,7 +11,7 @@ describe 'User Sessions' do
 
   context 'user unsigned in' do
     before do
-      fill_in 'Username', with: ''
+      fill_in 'Username', with: 'someone'
       click_button 'Log in'
     end
 
@@ -35,26 +35,23 @@ describe 'User Sessions' do
 
   context 'user signed in' do
     before do
-      puts User.all.inspect
-      fill_in 'Username', with: 'Zack'
-      
+      fill_in 'Username', with: username
       click_button 'Log in'
-      
     end
 
-    it 'displays a welcome message' do
-      expect(page).to have_content('You signed in successfully.')
-      
+    it 'displays an hello message' do
+      expect(page).to have_content('You signed in successfuly.')
     end
 
     it 'shows the correct menu links' do
       within('.navbar') do
+        sleep(5)
+        expect(page).to_not have_link('Sign In')
+        expect(page).to_not have_link('Sign up')
         expect(page).to have_link('My Events')
         expect(page).to have_link('Users')
         expect(page).to have_link('All Events')
         expect(page).to have_link('Sign Out')
-        expect(page).to_not have_link('Sign in')
-        expect(page).to_not have_link('Sign up')
       end
     end
   end
