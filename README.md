@@ -11,7 +11,7 @@
 ## Live View
 <a href="https://morning-inlet-11353.herokuapp.com/">
 
-<img src="https://perfect.org/images/heroku-logo.jpg" />
+<img src="https://www.pinclipart.com/picdir/middle/396-3967826_vue2-flaskheroku-heroku-logo-transparent-clipart.png" width="200" />
 
 </a>
 
