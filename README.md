@@ -9,10 +9,14 @@
 - Capybara, Rspec 
 
 ## Live View
--  https://morning-inlet-11353.herokuapp.com/
+<a href="https://morning-inlet-11353.herokuapp.com/">
+
+<img src="https://atomrace.com/blog/wp-content/uploads/2016/02/heroku-logo-trans.png"     alt="Heroku icon" style="width: 400px;" />
+
+</a>
 
 ## Screenshot
--  ![Screenshot - Private events](/app/assets/images/screenshot.png)
+-  ![Screenshot - Private events](./app/assets/images/screenshot.png)
 
 
 ## Authors
