@@ -2,7 +2,6 @@ require 'rails_helper'
 
 describe User do
   subject { User.new(username: 'Franco', email:'franco@rosa.net' )}
-
   it { should validate_presence_of(:username) }
   it { should validate_uniqueness_of(:username) }
   it { should validate_length_of(:username).is_at_least(3).is_at_most(20) }
@@ -12,7 +11,6 @@ describe User do
   it { should have_many(:events) }
   it { should have_many(:attended_events) }
   it { should have_many(:events_users) }
-
   it 'is valid with valid attributes' do
     expect(subject).to be_valid
   end

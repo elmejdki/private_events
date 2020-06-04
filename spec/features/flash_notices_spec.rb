@@ -15,14 +15,12 @@ describe 'Flash Notices for sign in', js:true do
     it 'user can\'t log in' do
       fill_in 'Username', with: wrong_username
       click_button 'Log in'
-  
       expect(page).to have_content('Wrong Username, sorry you are not allowed to enter.')
     end
-  
+
     it 'user logged in succefully' do
       fill_in 'Username', with: username
       click_button 'Log in'
-  
       expect(page).to have_content('You signed in successfully.')
     end
   
@@ -31,7 +29,6 @@ describe 'Flash Notices for sign in', js:true do
       fill_in 'Username', with: 'newuser'
       fill_in 'Email', with: 'newuser@gmail.com'
       click_button 'Sign up'
-  
       expect(page).to have_content('You have successfuly signed up.')
     end
   end
