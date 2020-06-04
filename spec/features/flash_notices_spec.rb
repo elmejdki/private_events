@@ -1,11 +1,18 @@
 require 'rails_helper'
 
-describe 'Flash Notices for sign in', js:true do
+describe 'Flash Notices for sign in' do
   let!(:user) { User.create(username: username, email: email) }
   let!(:second_user) { User.create(username: username + 'fs', email: email + 'fdsf') }
   let(:email) { 'Zack@gmail.com' }
   let(:username) { 'Zack' }
   let(:wrong_username) { 'nothing' }
+
+  let!(:event) { User.first.events.create(title: 'Event Title', body: body, place: place, date: date) }
+
+  let(:title) { 'Test Event' }
+  let(:body) { 'Test Event for testing purposes' }
+  let(:place) { 'Far away' }
+  let(:date) { Time.now }
 
   before do
     visit users_sign_in_path
@@ -23,7 +30,7 @@ describe 'Flash Notices for sign in', js:true do
       click_button 'Log in'
       expect(page).to have_content('You signed in successfully.')
     end
-  
+
     it 'sign up a user successfuly' do
       visit new_user_path
       fill_in 'Username', with: 'newuser'
@@ -32,35 +39,23 @@ describe 'Flash Notices for sign in', js:true do
       expect(page).to have_content('You have successfuly signed up.')
     end
   end
-  
-  context 'Signed in user' do
-    let!(:event) { User.first.events.create(
-      title: 'Event Title',
-      body: body,
-      place: place,
-      date: date
-    ) }
-    let(:title) { 'Test Event' }
-    let(:body) { 'Test Event for testing purposes' }
-    let(:place) { 'Far away' }
-    let(:date) { Time.now }
 
+  context 'Signed in user' do
     before do
       fill_in 'Username', with: username
       click_button 'Log in'
     end
-    
+
     it 'sign out successfuly' do
       within('.navbar') do
         click_link 'Sign Out'
       end
       expect(page).to have_content('You signed out, see you later man')
     end
-    
+
     it 'create event successfully' do
-      within('.navbar') do
-        click_link 'My Events'
-      end
+      within('.navbar') { click_link 'My Events' }
+
       click_link 'Create a new event'
 
       fill_in 'Title', with: title
@@ -73,16 +68,12 @@ describe 'Flash Notices for sign in', js:true do
     end
 
     it 'create event successfully' do
-      within('.navbar') do
-        click_link 'All Events'
-      end
+      within('.navbar') { click_link 'All Events' }
 
-      within('.box') do
-        click_link 'Show'
-      end
+      within('.box') { click_link 'Show' }
 
       click_button 'invite user'
       expect(page).to have_content('user was invited to the event successfully')
-    end    
+    end
   end
 end

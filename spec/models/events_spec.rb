@@ -1,10 +1,10 @@
 require 'rails_helper'
 
 describe Event do
-  subject { Event.new(title: title, body: body, place: place, date: date, user_id: User.first.id )}
-  
-  let!(:user) { User.create(username: username, email: email )}
-  
+  subject { Event.new(title: title, body: body, place: place, date: date, user_id: User.first.id) }
+
+  let!(:user) { User.create(username: username, email: email) }
+
   let(:username) { 'Franco' }
   let(:email) { 'franco@rosa.net' }
 
@@ -39,12 +39,12 @@ describe Event do
   end
 
   it 'is not valid if the title is not unique' do
-    Event.create(title: 'Event Title', body: body, place: place, date: date, user_id: User.first.id )
+    Event.create(title: 'Event Title', body: body, place: place, date: date, user_id: User.first.id)
     expect(subject).to_not be_valid
   end
 
   it 'is not valid if the title is not unique' do
-    Event.create(title: 'Event 2 Title', body: body, place: place, date: date, user_id: User.first.id )
+    Event.create(title: 'Event 2 Title', body: body, place: place, date: date, user_id: User.first.id)
     expect(subject).to be_valid
   end
 end

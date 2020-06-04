@@ -19,7 +19,6 @@ describe 'User Sessions' do
       expect(page).to have_content('Wrong Username, sorry you are not allowed to enter.')
     end
 
-    
     it 'shows the correct menu links' do
       within('.navbar') do
         sleep(5)

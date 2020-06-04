@@ -1,11 +1,20 @@
 require 'rails_helper'
 
 describe EventsUser, type: :model do
-  let(:event) { Event.create( title: 'Event Title', body: 'Event Body, hello guys', place: 'LA', date: Time.now, user_id: user.id ) }
-  let(:user) { User.create( username: 'Zack', email: 'Zack@ElMejdki.net' ) }
-  let(:user2) { User.create( username: 'Franco', email: 'Franco@rosa.net' ) }
+  let(:event) do
+    Event.create(
+      title: 'Event Title',
+      body: 'Event Body, hello guys',
+      place: 'LA',
+      date: Time.now,
+      user_id: user.id
+    )
+  end
 
-  subject { EventsUser.new( attended_event: event, attendee: user )}
+  let(:user) { User.create(username: 'Zack', email: 'Zack@ElMejdki.net') }
+  let(:user2) { User.create(username: 'Franco', email: 'Franco@rosa.net') }
+
+  subject { EventsUser.new(attended_event: event, attendee: user) }
 
   it 'is valid with valid attributes' do
     expect(subject).to be_valid

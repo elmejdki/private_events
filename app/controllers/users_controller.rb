@@ -25,10 +25,10 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @attended_events = @user.attended_events.order('date asc')
-  end  
+  end
 
   def destroy
-    @user =  User.find(params[:id])
+    @user = User.find(params[:id])
     @user.destroy
     redirect_to users_path
     session.delete(:user_id)
@@ -39,7 +39,7 @@ class UsersController < ApplicationController
   end
 
   def sign_in_action
-    @user = User.find_by(username: user_params["username"])
+    @user = User.find_by(username: user_params['username'])
 
     if @user.nil?
       redirect_to root_path, alert: 'Wrong Username, sorry you are not allowed to enter.'
@@ -48,13 +48,14 @@ class UsersController < ApplicationController
       redirect_to root_path, notice: 'You signed in successfully.'
     end
   end
-  
+
   def sign_out
     session.delete(:user_id)
     redirect_to root_path, notice: 'You signed out, see you later man'
   end
 
   private
+
   def user_params
     params.require(:user).permit(:username, :email)
   end

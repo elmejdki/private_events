@@ -16,7 +16,7 @@ class EventsController < ApplicationController
 
   def create
     @event = User.find(session[:user_id]).events.build(event_params)
-    
+
     if @event.save
       @invite = EventsUser.new(attendee_id: session[:user_id], attended_event_id: @event.id)
 
@@ -32,6 +32,7 @@ class EventsController < ApplicationController
   end
 
   private
+
   def event_params
     params.require(:event).permit(:title, :body, :date, :place)
   end
