@@ -25,6 +25,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @attended_events = @user.attended_events.order('date asc')
+    @created_events = @user.events
   end
 
   def destroy
