@@ -1,13 +1,9 @@
 module UsersHelper
   def error_action(field)
-    if @user.errors[field].any?
-      render partial: 'error_handler', locals: {source: field}
-    end
+    render partial: 'error_handler', locals: { source: field } if @user.errors[field].any?
   end
 
   def trash_action
-    if @user.id == session[:user_id]
-      render 'trash_icon'
-    end
+    render 'trash_icon' if @user.id == session[:user_id]
   end
 end

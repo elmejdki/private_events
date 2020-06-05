@@ -1,14 +1,10 @@
 module ApplicationHelper
   def notification_handler
-    if flash[:notice]
-      render 'notification'
-    end
+    render 'notification' if flash[:notice]
   end
 
   def alert_handler
-    if flash[:alert]
-      render 'alert'
-    end
+    render 'alert' if flash[:alert]
   end
 
   def session_handler
@@ -16,6 +12,6 @@ module ApplicationHelper
       render 'sign_in_menu'
     else
       render 'log_out_menu'
-    end 
+    end
   end
 end
