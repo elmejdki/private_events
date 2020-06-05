@@ -1,5 +1,3 @@
-<% if @event.errors[source].any? %>
-  <% @event.errors[source].each do |msg| %>
-    <p class="error"><%= msg %></p>
-  <% end %>
+<% @event.errors[source].each do |msg| %>
+  <p class="error"><%= msg %></p>
 <% end %>
