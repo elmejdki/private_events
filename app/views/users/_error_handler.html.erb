@@ -1,5 +1,3 @@
-<% if @user.errors[source].any? %>
-  <% @user.errors[source].each do |msg| %>
-    <p class="error"><%= msg %></p>
-  <% end %>
+<% @user.errors[source].each do |msg| %>
+  <p class="error"><%= msg %></p>
 <% end %>
