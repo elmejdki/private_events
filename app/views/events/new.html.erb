@@ -6,19 +6,19 @@
           <div class="flex-centered">
             <%= f.label :title, class: 'tag is-large' %>
             <%= f.text_field :title, class: 'input m-ud' %>
-            <%= error_action(:title) %>
+            <%= event_error_action(:title) %>
 
             <%= f.label :body, class: 'tag is-large' %>
             <%= f.text_area :body, class: 'textarea m-ud' %>
-            <%= error_action(:body) %>
+            <%= event_error_action(:body) %>
 
             <%= f.label :place, class: 'tag is-large' %>
             <%= f.text_field :place, class: 'input m-ud' %>
-            <%= error_action(:place) %>
+            <%= event_error_action(:place) %>
 
             <%= f.label :date, class: 'tag is-large' %>
             <%= f.date_field :date, class: 'input m-ud' %>
-            <%= error_action(:date) %>
+            <%= event_error_action(:date) %>
 
             <%= f.submit "Create Event", class: 'button is-primary m-ud' %>
           </div>

@@ -1,0 +1,9 @@
+<div class="navbar-start is-flex">
+  Welcome: <%= User.find(session[:user_id]).username %>
+  <%= link_to "All Events", events_path, class: 'is-primary button m-l' %>
+  <%= link_to "My Events", my_events_path, class: 'is-primary button m-l' %>
+  <%= link_to "Users", users_path, class: 'is-primary button m-l' %>
+</div>
+<div class="navbar-end is-flex">
+  <%= link_to "Sign Out", users_sign_out_path, method: :delete, class: 'is-danger button' %>
+</div>
