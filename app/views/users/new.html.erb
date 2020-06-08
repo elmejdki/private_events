@@ -1,0 +1,20 @@
+<div class="columns is-centered">
+  <div class="column is-one-third">
+    <div class="box"> 
+      <h1 class="title is-5 has-background-info has-text-centered has-text-white"> Sign Up </h1>
+        <%= form_for @user, url: users_path do |f| %>
+          <div class="flex-centered">
+            <%= f.label :username, class: 'tag is-large' %>
+            <%= f.text_field :username, class: 'input m-ud' %>
+            <%= error_action(:username) %>
+
+            <%= f.label :email, class: 'tag is-large' %>
+            <%= f.text_field :email, class: 'input m-ud' %>
+            <%= error_action(:email) %>
+
+            <%= f.submit "Sign up", class: 'button is-primary m-ud' %>
+          </div>
+        <% end %>
+    </div> 
+  </div> 
+</div> 
